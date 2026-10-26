@@ -1,0 +1,300 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Comunidade Santo Antônio</title>
+<meta name="description" content="Comunidade Santo Antônio – Bacabal. Novenas, exame de consciência, Instagram e WhatsApp.">
+<meta property="og:title" content="Comunidade Santo Antônio">
+<meta property="og:description" content="Novenas, exame de consciência e contatos da comunidade.">
+<meta property="og:image" content="img/fundo-1.jpg">
+<meta name="theme-color" content="#120c07">
+<link rel="icon" href="img/avatar.jpg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --ouro: #d9b46a;
+    --ouro-claro: #f1dcaa;
+    --texto: #fbf6ec;
+    --texto-suave: rgba(251, 246, 236, .72);
+    --vidro: rgba(255, 250, 240, .10);
+    --vidro-forte: rgba(255, 250, 240, .18);
+    --borda: rgba(241, 220, 170, .28);
+    --fundo: #120c07;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html, body { min-height: 100%; }
+  body {
+    background: var(--fundo);
+    color: var(--texto);
+    font-family: "Inter", system-ui, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    overflow-x: hidden;
+  }
+
+  /* ---------- fundo: vídeo (se houver) ou fotos em movimento ---------- */
+  .fundo { position: fixed; inset: 0; z-index: -2; overflow: hidden; }
+  .fundo video, .fundo .foto {
+    position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover;
+  }
+  .fundo .foto {
+    background-size: cover; background-position: center;
+    opacity: 0; transform: scale(1.08);
+    animation: passa 42s infinite;
+  }
+  /* fotos do Instagram da comunidade (@santoantoniobacabal) */
+  .fundo .foto:nth-child(1) { background-image: url(img/fundo-1.jpg); animation-delay: 0s; }
+  .fundo .foto:nth-child(2) { background-image: url(img/fundo-2.jpg); animation-delay: 7s; }
+  .fundo .foto:nth-child(3) { background-image: url(img/fundo-3.jpg); animation-delay: 14s; }
+  .fundo .foto:nth-child(4) { background-image: url(img/fundo-4.jpg); animation-delay: 21s; }
+  .fundo .foto:nth-child(5) { background-image: url(img/fundo-5.jpg); animation-delay: 28s; }
+  .fundo .foto:nth-child(6) { background-image: url(img/fundo-6.jpg); animation-delay: 35s; }
+  @keyframes passa {
+    0%   { opacity: 0; transform: scale(1.08) translateY(0); }
+    4%   { opacity: 1; }
+    17%  { opacity: 1; }
+    22%  { opacity: 0; transform: scale(1.2) translateY(-2%); }
+    100% { opacity: 0; }
+  }
+  .fundo video { opacity: 0; transition: opacity 1.2s; }
+  .fundo.com-video video { opacity: 1; }
+  .fundo.com-video .foto { display: none; }
+  .veu {
+    position: fixed; inset: 0; z-index: -1;
+    background:
+      radial-gradient(120% 60% at 50% 10%, rgba(18,12,7,.05), rgba(18,12,7,.7) 75%),
+      linear-gradient(180deg, rgba(18,12,7,.15) 0%, rgba(18,12,7,.55) 45%, rgba(18,12,7,.9) 100%);
+  }
+
+  /* ---------- conteúdo ---------- */
+  main {
+    width: 100%; max-width: 560px; margin: 0 auto;
+    padding: calc(48px + env(safe-area-inset-top)) 16px calc(40px + env(safe-area-inset-bottom));
+    display: flex; flex-direction: column; align-items: center;
+  }
+  .avatar {
+    width: 112px; height: 112px; border-radius: 50%;
+    padding: 3px; background: linear-gradient(135deg, var(--ouro-claro), var(--ouro) 50%, #8a6a2c);
+    box-shadow: 0 10px 40px rgba(0,0,0,.5);
+    animation: surge .8s ease-out both;
+  }
+  .avatar img, .avatar svg {
+    width: 100%; height: 100%; border-radius: 50%; object-fit: cover; display: block;
+    background: #2a1a0e; border: 3px solid var(--fundo);
+  }
+  h1 {
+    margin-top: 18px;
+    font-family: "Cormorant Garamond", serif; font-weight: 600;
+    font-size: clamp(30px, 8vw, 40px); line-height: 1.05; text-align: center;
+    letter-spacing: .01em;
+    text-shadow: 0 2px 20px rgba(0,0,0,.5);
+    animation: surge .8s .1s ease-out both;
+  }
+  .local {
+    margin-top: 6px; font-size: 13px; letter-spacing: .22em; text-transform: uppercase;
+    color: var(--ouro-claro);
+    animation: surge .8s .15s ease-out both;
+  }
+  .paroquia {
+    margin-top: 6px; font-family: "Cormorant Garamond", serif; font-style: italic;
+    font-size: 17px; color: var(--texto-suave); text-align: center;
+    animation: surge .8s .18s ease-out both;
+  }
+  .redes { display: flex; gap: 14px; margin-top: 18px; animation: surge .8s .2s ease-out both; }
+  .redes a {
+    width: 46px; height: 46px; border-radius: 50%;
+    display: grid; place-items: center;
+    background: var(--vidro); border: 1px solid var(--borda);
+    color: var(--texto); backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px);
+    transition: transform .2s, background .2s;
+  }
+  .redes a:hover { transform: translateY(-2px); background: var(--vidro-forte); }
+  .redes svg { width: 22px; height: 22px; }
+
+  .secao {
+    width: 100%; margin-top: 34px;
+    display: flex; flex-direction: column; gap: 12px;
+  }
+  .secao h2 {
+    display: flex; align-items: center; gap: 12px;
+    font-family: "Cormorant Garamond", serif; font-style: italic; font-weight: 500;
+    font-size: 20px; color: var(--ouro-claro);
+  }
+  .secao h2::before, .secao h2::after {
+    content: ""; flex: 1; height: 1px;
+    background: linear-gradient(90deg, transparent, var(--borda), transparent);
+  }
+
+  .botao {
+    position: relative;
+    display: flex; align-items: center; gap: 14px;
+    min-height: 64px; padding: 12px 18px 12px 12px;
+    border-radius: 18px;
+    background: var(--vidro); border: 1px solid var(--borda);
+    backdrop-filter: blur(14px) saturate(1.2); -webkit-backdrop-filter: blur(14px) saturate(1.2);
+    color: var(--texto); text-decoration: none;
+    box-shadow: 0 8px 30px rgba(0,0,0,.25);
+    transition: transform .2s, background .2s, border-color .2s;
+    animation: surge .7s ease-out both;
+  }
+  .botao:hover { transform: translateY(-2px); background: var(--vidro-forte); border-color: rgba(241,220,170,.5); }
+  .botao:active { transform: scale(.98); }
+  .icone {
+    flex: none; width: 40px; height: 40px; border-radius: 12px;
+    display: grid; place-items: center;
+    background: rgba(217,180,106,.18); color: var(--ouro-claro);
+  }
+  .icone svg { width: 22px; height: 22px; }
+  .rotulo { flex: 1; min-width: 0; }
+  .rotulo strong { display: block; font-weight: 600; font-size: 15.5px; }
+  .rotulo span { display: block; font-size: 13px; color: var(--texto-suave); margin-top: 2px; }
+  .seta { flex: none; width: 18px; height: 18px; opacity: .55; }
+
+  .botao.destaque {
+    background: linear-gradient(135deg, rgba(217,180,106,.92), rgba(176,134,58,.92));
+    border-color: rgba(255,240,200,.6); color: #23170b;
+  }
+  .botao.destaque:hover { background: linear-gradient(135deg, rgba(232,198,128,.96), rgba(190,148,70,.96)); }
+  .botao.destaque .icone { background: rgba(35,23,11,.15); color: #23170b; }
+  .botao.destaque .rotulo span { color: rgba(35,23,11,.75); }
+  .botao.destaque .seta { opacity: .7; }
+
+  .botao.whats .icone { background: rgba(37,211,102,.2); color: #7cf0a8; }
+
+  footer {
+    margin-top: 44px; text-align: center;
+    font-family: "Cormorant Garamond", serif; font-style: italic; font-size: 19px;
+    color: var(--ouro-claro);
+  }
+  footer small {
+    display: block; margin-top: 8px;
+    font-family: "Inter", sans-serif; font-style: normal; font-size: 12px; color: var(--texto-suave);
+  }
+
+  @keyframes surge { from { opacity: 0; transform: translateY(14px); } to { opacity: 1; transform: none; } }
+  @media (prefers-reduced-motion: reduce) {
+    .fundo .foto { animation: none; }
+    .fundo .foto:first-child { opacity: 1; transform: none; }
+    .avatar, h1, .local, .redes, .botao { animation: none; }
+  }
+</style>
+</head>
+<body>
+
+<div class="fundo" id="fundo">
+  <div class="foto"></div><div class="foto"></div><div class="foto"></div><div class="foto"></div><div class="foto"></div><div class="foto"></div>
+  <!-- Para usar vídeo da igreja: coloque o arquivo em video/fundo.mp4 (curto, sem som, até ~10 MB) -->
+  <video id="video" autoplay muted loop playsinline preload="auto" poster="img/fundo-1.jpg">
+    <source src="video/fundo.mp4" type="video/mp4">
+  </video>
+</div>
+<div class="veu"></div>
+
+<main>
+  <div class="avatar">
+    <img src="img/avatar.jpg" alt="Comunidade Santo Antônio"
+         onerror="this.replaceWith(document.getElementById('avatar-reserva').content.cloneNode(true))">
+  </div>
+  <template id="avatar-reserva">
+    <svg viewBox="0 0 100 100" aria-hidden="true">
+      <rect width="100" height="100" fill="#2a1a0e"/>
+      <g fill="none" stroke="#d9b46a" stroke-width="3" stroke-linejoin="round">
+        <path d="M50 18v14M44 24h12"/>
+        <path d="M30 78V50l20-16 20 16v28z"/>
+        <path d="M44 78V64a6 6 0 0 1 12 0v14"/>
+      </g>
+    </svg>
+  </template>
+
+  <h1>Comunidade<br>Santo Antônio</h1>
+  <p class="local">Bacabal · MA</p>
+  <p class="paroquia">Paróquia de Sant'Ana e São Joaquim</p>
+
+  <nav class="redes" aria-label="Redes sociais">
+    <a href="https://instagram.com/santoantoniobacabal" target="_blank" rel="noopener" aria-label="Instagram">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg>
+    </a>
+    <a href="https://wa.me/559982440345" target="_blank" rel="noopener" aria-label="WhatsApp">
+      <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm0 18.2a8.2 8.2 0 0 1-4.2-1.1l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8-.2-.1-.4-.1-.6.1l-.8 1c-.1.2-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.2-.4.2-.4.7-1.3.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2c0 1.3.9 2.5 1 2.7.1.2 1.8 2.8 4.4 3.9 1.6.7 2.3.8 3.1.6.5-.1 1.5-.6 1.7-1.2.2-.6.2-1.1.2-1.2-.1-.1-.3-.2-.6-.3z"/></svg>
+    </a>
+  </nav>
+
+  <section class="secao">
+    <h2>Confissão</h2>
+    <a class="botao destaque" style="animation-delay:.25s"
+       href="https://textoscatolicos.wordpress.com/2009/08/20/exame-de-consciencia-para-confissao-bastante-completo/" target="_blank" rel="noopener">
+      <span class="icone">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v18M7 8h10"/></svg>
+      </span>
+      <span class="rotulo"><strong>Exame de Consciência</strong><span>Prepare-se para uma boa confissão</span></span>
+      <svg class="seta" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 6l6 6-6 6"/></svg>
+    </a>
+  </section>
+
+  <section class="secao">
+    <h2>Novenas</h2>
+    <a class="botao" style="animation-delay:.3s" href="https://drive.google.com/file/d/1zDO-Rh_p3sCKhfY_trp89t6n9K8S9Lu_/view?usp=sharing" target="_blank" rel="noopener">
+      <span class="icone">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3c-1.5 3-1.5 5 0 7 1.5-2 1.5-4 0-7z"/><path d="M12 10v11M8 14c1.5 0 3 .8 4 2 1-1.2 2.5-2 4-2"/></svg>
+      </span>
+      <span class="rotulo"><strong>Novena de Santo Antônio</strong><span>Nove dias com o nosso padroeiro</span></span>
+      <svg class="seta" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 6l6 6-6 6"/></svg>
+    </a>
+    <a class="botao" style="animation-delay:.35s" href="https://drive.google.com/file/d/1jYnMsnoaBjWfiGtNXNwyGRFNg2Ai9m3t/view?usp=sharing" target="_blank" rel="noopener">
+      <span class="icone">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"><path d="M12 20s-7-4.4-7-10a4 4 0 0 1 7-2.6A4 4 0 0 1 19 10c0 5.6-7 10-7 10z"/></svg>
+      </span>
+      <span class="rotulo"><strong>Novena para Namorados</strong><span>Rezar juntos o caminho do amor</span></span>
+      <svg class="seta" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 6l6 6-6 6"/></svg>
+    </a>
+    <a class="botao" style="animation-delay:.4s" href="https://drive.google.com/file/d/1KBjWs0N_f2He1g_ly0ghjVhws6T6wjB8/view?usp=sharing" target="_blank" rel="noopener">
+      <span class="icone">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="9" cy="14" r="5"/><circle cx="15" cy="14" r="5"/><path d="M10 4l2 3 2-3" stroke-linejoin="round"/></svg>
+      </span>
+      <span class="rotulo"><strong>Novena para Noivos</strong><span>Preparação para o matrimônio</span></span>
+      <svg class="seta" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 6l6 6-6 6"/></svg>
+    </a>
+    <a class="botao" style="animation-delay:.45s" href="https://drive.google.com/file/d/1q6VPzga5od2mq4Dvk3MBM6CqbqBJriFX/view?usp=sharing" target="_blank" rel="noopener">
+      <span class="icone">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 11l9-7 9 7"/><path d="M5 10v10h14V10"/><path d="M12 18s-3-1.8-3-4a1.7 1.7 0 0 1 3-1 1.7 1.7 0 0 1 3 1c0 2.2-3 4-3 4z"/></svg>
+      </span>
+      <span class="rotulo"><strong>Novena para Esposos</strong><span>Pela família e pelo casamento</span></span>
+      <svg class="seta" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 6l6 6-6 6"/></svg>
+    </a>
+  </section>
+
+  <section class="secao">
+    <h2>Fale conosco</h2>
+    <a class="botao whats" style="animation-delay:.5s" href="https://wa.me/559982440345" target="_blank" rel="noopener">
+      <span class="icone">
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm0 18.2a8.2 8.2 0 0 1-4.2-1.1l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8-.2-.1-.4-.1-.6.1l-.8 1c-.1.2-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.2-.4.2-.4.7-1.3.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2c0 1.3.9 2.5 1 2.7.1.2 1.8 2.8 4.4 3.9 1.6.7 2.3.8 3.1.6.5-.1 1.5-.6 1.7-1.2.2-.6.2-1.1.2-1.2-.1-.1-.3-.2-.6-.3z"/></svg>
+      </span>
+      <span class="rotulo"><strong>WhatsApp</strong><span>Informações, horários e pedidos</span></span>
+      <svg class="seta" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 6l6 6-6 6"/></svg>
+    </a>
+    <a class="botao" style="animation-delay:.55s" href="https://www.google.com/maps/search/?api=1&amp;query=Rua+Dias+Carneiro,+2117,+Bacabal+-+MA" target="_blank" rel="noopener">
+      <span class="icone">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"><path d="M12 21s-7-6.2-7-11.5a7 7 0 0 1 14 0C19 14.8 12 21 12 21z"/><circle cx="12" cy="9.5" r="2.5"/></svg>
+      </span>
+      <span class="rotulo"><strong>Como chegar</strong><span>Rua Dias Carneiro, 2117 · Bacabal</span></span>
+      <svg class="seta" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 6l6 6-6 6"/></svg>
+    </a>
+  </section>
+
+  <footer>
+    Santo Antônio, rogai por nós.
+    <small>Comunidade Santo Antônio · Bacabal</small>
+  </footer>
+</main>
+
+<script>
+  // Se existir video/fundo.mp4, ele substitui as fotos; senão, as fotos continuam passando.
+  const video = document.getElementById('video');
+  const fundo = document.getElementById('fundo');
+  video.addEventListener('playing', () => fundo.classList.add('com-video'));
+  video.querySelector('source').addEventListener('error', () => video.remove());
+</script>
+</body>
+</html>
